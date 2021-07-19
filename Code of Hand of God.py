@@ -73,7 +73,7 @@ if option==2:
 if option==3:
 
     actions=[[1,2,3]]
-    file_CSV=open('C:\\Users\\Vinay\\OneDrive\\Documents\\GitHub\\ITSP-Hand_of_God\\Hand.csv')
+    file_CSV=open('D:\\Codes\\Python\\PROJECTS\\ITSP\\Hand.csv')
     reader1=csv.reader(file_CSV)
 
     hand=list(reader1)
