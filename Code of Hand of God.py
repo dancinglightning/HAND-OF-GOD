@@ -73,7 +73,7 @@ if option==2:
 if option==3:
 
     actions=[[1,2,3]]
-    file_CSV=open('D:\\Codes\\Python\\PROJECTS\\ITSP\\Hand.csv')
+    file_CSV=open('C:\\Users\\Vinay\\OneDrive\\Documents\\GitHub\\ITSP-Hand_of_God\\Hand.csv')
     reader1=csv.reader(file_CSV)
 
     hand=list(reader1)
@@ -83,14 +83,15 @@ if option==3:
     svm_model_linear=SVC(kernel='linear',C=1).fit(X_train,y_train)
 
     print("Predicting the performed action...")
+    print()
 
     train_len = 0
     final_predictions = []
-    for rep in range(100):
+    while 1>0:
         data1 = arduino.readline()
         if (data1):
-            data2 = list(map(float,str(data1)[2:-5].split("/")))
-            actions = actions + [svm_model_linear.predict([data2[0:3]])]
+            data2 = list(map(eval,str(data1)[2:-5].split("/")))
+            actions = actions + [svm_model_linear.predict(np.array([data2[0:3]]))]
             if len(actions)>0 and len(final_predictions)>0:
                 if actions[-1]!=final_predictions[-1]:
                     final_predictions = final_predictions + [actions[-1]]
@@ -100,7 +101,7 @@ if option==3:
 
             if train_len != len(final_predictions):
                 train_len = len(final_predictions)
-                print(final_predictions[-1])
+                print(final_predictions[-1][0])
             
 
     accuracy=svm_model_linear.score(X_test,y_test)        
