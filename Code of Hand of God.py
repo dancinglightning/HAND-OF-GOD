@@ -91,9 +91,8 @@ if option==3:
         if (data1):
             data2 = list(map(float,str(data1)[2:-5].split("/")))
             actions = actions + [svm_model_linear.predict([data2[0:3]])]
-            if len(actions)>1:
-                train_len = len(actions)
-                if actions[-1]!=actions[-2]:
+            if len(actions)>0 and len(final_predictions)>0:
+                if actions[-1]!=final_predictions[-1]:
                     final_predictions = final_predictions + [actions[-1]]
             else:
                 final_predictions = final_predictions + [actions[-1]]
