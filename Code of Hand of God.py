@@ -75,31 +75,31 @@ if option==3:
     actions=[[1,2,3]]
     file_CSV=open('D:\\Codes\\Python\\PROJECTS\\ITSP\\Hand.csv')
     reader1=csv.reader(file_CSV)
+
+    hand=list(reader1)
+    X=X_maker(hand)
+    y=y_maker(hand)
+    X_train,X_test,y_train,y_test=train_test_split(X,y,random_state=0)
+    svm_model_linear=SVC(kernel='linear',C=1).fit(X_train,y_train)
+
     print("Predicting the performed action...")
+
+    train_len = 0
+    final_predictions = []
     for rep in range(100):
         data1 = arduino.readline()
         if (data1):
             data2 = list(map(float,str(data1)[2:-5].split("/")))
-            actions = actions + [data2[0:3]]
-            
-    hand=list(reader1) 
-    file_CSV.close()
-    
-    X=X_maker(hand)
-    y=y_maker(hand)
-      
-    X_train,X_test,y_train,y_test=train_test_split(X,y,random_state=0)
-   
-    svm_model_linear=SVC(kernel='linear',C=1).fit(X_train,y_train)
-    
-    svm_predictions=svm_model_linear.predict(actions)
-    final_predictions=[]
-    for predict1 in range(len(actions)):
-        if len(final_predictions)==0:
-            final_predictions=final_predictions+[svm_predictions[predict1]]
-        elif svm_predictions[predict1]!=final_predictions[-1] and len(final_predictions)>0:
-            final_predictions=final_predictions+[svm_predictions[predict1]]
-            
+            actions = actions + [svm_model_linear.predict([data2[0:3]])]
+            if len(actions)>1:
+                train_len = len(actions)
+                if actions[-1]!=actions[-2]:
+                    final_predictions = final_predictions + [actions[-1]]
+            else:
+                final_predictions = final_predictions + [actions[-1]]
+
     accuracy=svm_model_linear.score(X_test,y_test)        
     print("Predictions :",final_predictions)
     print("Training Accuracy :",100*accuracy,"%")
+
+    file_CSV.close()
