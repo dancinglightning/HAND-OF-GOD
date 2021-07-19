@@ -94,8 +94,14 @@ if option==3:
             if len(actions)>0 and len(final_predictions)>0:
                 if actions[-1]!=final_predictions[-1]:
                     final_predictions = final_predictions + [actions[-1]]
-            else:
+
+            if len(actions)>0 and len(final_predictions)==0:
                 final_predictions = final_predictions + [actions[-1]]
+
+            if train_len!=len(final_predictions):
+                train_len = len(final_predictions)
+                print(final_predictions[-1])
+            
 
     accuracy=svm_model_linear.score(X_test,y_test)        
     print("Predictions :",final_predictions)
