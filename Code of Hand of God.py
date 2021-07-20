@@ -62,7 +62,7 @@ arduino = serial.Serial('COM5', 9600, timeout=0.1)
 
 #Storing Action photograph values
 if option==1:
-    csv_path = open('D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Hand.csv')
+    csv_path = open('D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Hand.csv','w')
     writer1 = csv.writer(csv_path)
     action_name = input(str("GOD : Action name >>> "))
     print("GOD : Analyzing Input...")
