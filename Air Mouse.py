@@ -25,17 +25,17 @@ while True:
 
             if (finger1<600 and finger2<600 and finger3<600 and finger4<600):
                 mouse.click('left')
-            if (finger3>600 and finger4>600 and finger1<600 and finger2<600):
+            elif (finger3>600 and finger4>600 and finger1<600 and finger2<600):
                 mouse.click('right')
-            if (finger1>600 and finger2<600 and finger3<600 and finger4<600):
+            elif (finger1>600 and finger2<600 and finger3<600 and finger4<600):
                 mouse.move(-10,0, absolute=False, duration=0.1)
-            if (finger1<600 and finger2>600 and finger3<600 and finger4<600):
+            elif (finger1<600 and finger2>600 and finger3<600 and finger4<600):
                 mouse.move(10,0, absolute=False, duration=0.1)
-            if (finger1<600 and finger2<600 and finger3>600 and finger4<600):
+            elif (finger1<600 and finger2<600 and finger3>600 and finger4<600):
                 mouse.move(0,-10, absolute=False, duration=0.1)
-            if (finger1<600 and finger2<600 and finger3<600 and finger4>600):
+            elif (finger1<600 and finger2<600 and finger3<600 and finger4>600):
                 mouse.move(0,10, absolute=False, duration=0.1)
-            if (finger1>600 and finger2>600 and finger3>600 and finger4>600):
+            elif (finger1>600 and finger2>600 and finger3>600 and finger4>600):
                 print("Terminted")
                 break
         
