@@ -89,10 +89,12 @@ if option==3:
 
     train_len = 0
     final_predictions = []
-    clutch = 0
+    clutch = True
     while True:
-        data1 = arduino.readline()
-        if (data1):
+        if !(clutch):
+
+        if clutch:
+            data1 = arduino.readline()
             data2 = list(map(eval,str(data1)[2:-5].split("/")))
             actions = actions + [svm_model_linear.predict(np.array([data2[0:3]]))]
             if len(actions)>0 and len(final_predictions)>0:
