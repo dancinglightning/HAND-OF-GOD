@@ -35,13 +35,13 @@ def interact():
 def X_maker(hand):
     l=[]
     for i in range(1,len(hand)):
-       l=l+[[hand[i][0],hand[i][1],hand[i][2]]]
+       l=l+[[hand[i][0],hand[i][1],hand[i][2]],hand[i][3]]
     return np.array(l)
     
 def y_maker(hand):
     l=[]
     for i in range(1,len(hand)):
-       l=l+[hand[i][3]] 
+       l=l+[hand[i][4]] 
     return np.array(l)
 
 option = interact()
@@ -56,8 +56,8 @@ if option==1:
     for rep in range(100):
         data1 = arduino.readline()
         if (data1):
-            data2 = list(map(float,str(data1)[2:-5].split("/")))
-            data2 = data2[0:3] + [action_name]
+            data2 = list(map(eval,str(data1)[2:-5].split("/")))
+            data2 = data2[0:4] + [action_name]
             writer1.writerow(data2)
     csv_path.close()
 
@@ -91,8 +91,6 @@ if option==3:
     final_predictions = []
     clutch = True
     while True:
-        if !(clutch):
-
         if clutch:
             data1 = arduino.readline()
             data2 = list(map(eval,str(data1)[2:-5].split("/")))
