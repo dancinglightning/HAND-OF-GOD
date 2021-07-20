@@ -111,9 +111,9 @@ if option==2:
     print(command_name,":",final_predictions)
     file_CSV.close()
     file1.close()
-    agree = str(input("Store (Y/N) > "))    
+    agree = str(input("god : Store (Y/N) > "))    
     if agree in ["Y","y","Yes","yes"]:
-        file2[command_name] = final_predictions
+        file2[str(final_predictions)] = command_name
         file3 = open("D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Commands.txt","w")
         file3.seek(0)
         file3.write(str(file2))
@@ -142,7 +142,7 @@ if option==3:
     print()
     file_CSV.close()
     file1.close()
-    
+
     train_len = 0
     final_predictions = []
     clutch = True
@@ -168,11 +168,11 @@ if option==3:
         if (not clutch) and standby:
             standby = False
             if final_predictions!=[]:
-                if final_predictions in file2:
-                    print("")
+                if str(final_predictions) in file2.keys():
+                    print("GOD : Command executed >",file2[str(final_predictions)])
                 else:
                     print("GOD : Command is unrecognized !!!")
-                final_predictions=[]
+                final_predictions=[]    
                 print("GOD : Glove is on Standby ...")
             if final_predictions==[]:
                 print("GOD : Glove is on Standby ...")
