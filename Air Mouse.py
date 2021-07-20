@@ -9,7 +9,7 @@ import serial
 import time
 import mouse
 
-arduino = serial.Serial('COM3', 9600, timeout=0.1)
+arduino = serial.Serial('COM5', 9600, timeout=0.1)
 
 while True:
         data1 = arduino.readline()
