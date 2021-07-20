@@ -186,7 +186,7 @@ if option==3:
             if final_predictions==[]:
                 print("GOD : Glove is on Standby ...")
             elif final_predictions!=[]:
-                print(get_key(file2,final_predictions))
+                eval(get_key(file2,final_predictions))
                 final_predictions=[]    
                 print("GOD : Glove is on Standby ...")
             print()

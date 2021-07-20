@@ -1,1 +1,1 @@
-{'turtle.forward(100)': ['Victory', 'Closed Hand'], 'turtle.forward(20)': ['Closed hand']}
+{'turtle.forward(20)': ['Victory', 'Closed Hand'], 'turtle.forward(100)': ['Closed hand']}
