@@ -81,13 +81,16 @@ if option==3:
     y=y_maker(hand)
     X_train,X_test,y_train,y_test=train_test_split(X,y,random_state=0)
     svm_model_linear=SVC(kernel='linear',C=1).fit(X_train,y_train)
-
+    accuracy=svm_model_linear.score(X_test,y_test)        
+    print("Training Accuracy :",100*accuracy,"%")
+    print()
     print("Predicting the performed action...")
     print()
 
     train_len = 0
     final_predictions = []
-    while 1>0:
+    clutch = 0
+    while True:
         data1 = arduino.readline()
         if (data1):
             data2 = list(map(eval,str(data1)[2:-5].split("/")))
@@ -102,10 +105,5 @@ if option==3:
             if train_len != len(final_predictions):
                 train_len = len(final_predictions)
                 print(final_predictions[-1][0])
-            
-
-    accuracy=svm_model_linear.score(X_test,y_test)        
-    print("Predictions :",final_predictions)
-    print("Training Accuracy :",100*accuracy,"%")
 
     file_CSV.close()
