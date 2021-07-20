@@ -62,17 +62,16 @@ arduino = serial.Serial('COM5', 9600, timeout=0.1)
 
 #Storing Action photograph values
 if option==1:
-    csv_path = open('D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Hand.csv','a')
-    writer1 = csv.writer(csv_path)
-    action_name = input(str("GOD : Action name >>> "))
-    print("GOD : Analyzing Input...")
-    for rep in range(100):
-        data1 = arduino.readline()
-        if (data1):
-            data2 = list(map(eval,str(data1)[2:-5].split("/")))
-            data2 = data2[0:4] + [action_name]
-            writer1.writerow(data2)
-    csv_path.close()
+    with open('D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Hand.csv', 'a', encoding='UTF8', newline='') as f:
+        writer1 = csv.writer(f)
+        action_name = input(str("GOD : Action name >>> "))
+        print("GOD : Analyzing Input...")
+        for rep in range(100):
+            data1 = arduino.readline()
+            if (data1):
+                data2 = list(map(eval,str(data1)[2:-5].split("/")))
+                data2 = data2[0:4] + [action_name]
+                writer1.writerow(data2)
 
 #Storing Action sequences
 if option==2:
