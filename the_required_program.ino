@@ -28,7 +28,7 @@ void loop() {
   Serial.print("/");
   Serial.print(V2);
   Serial.print("/");
-  Serial.println(V3);
+  Serial.print(V3);
   Serial.print("/");
   Serial.println(V4);
  delay(delayTime); 

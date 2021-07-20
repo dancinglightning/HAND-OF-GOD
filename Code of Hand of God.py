@@ -35,21 +35,21 @@ def interact():
 def X_maker(hand):
     l=[]
     for i in range(1,len(hand)):
-       l=l+[[hand[i][0],hand[i][1],hand[i][2]],hand[i][3]]
+       l=l+[[hand[i][0],hand[i][1],hand[i][2],hand[i][3]]]
     return np.array(l)
     
 def y_maker(hand):
     l=[]
     for i in range(1,len(hand)):
-       l=l+[hand[i][4]] 
+       l=l+[[hand[i][4]]] 
     return np.array(l)
 
 option = interact()
-#arduino = serial.Serial('COM3', 19200, timeout=0.1)
+arduino = serial.Serial('COM5', 19200, timeout=0.1)
 
-#Storing values
+#Storing Action photograph values
 if option==1:
-    csv_path = open('D:\\Codes\\Python\\PROJECTS\\ITSP\\Hand.csv')
+    csv_path = open('D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Hand.csv')
     writer1 = csv.writer(csv_path)
     action_name = input(str("Action name >>> "))
     print("Analyzing Input...")
@@ -63,13 +63,13 @@ if option==1:
 
 #Storing Action sequences
 if option==2:
-    file1 = open("D:\\Codes\\Python\\PROJECTS\\ITSP\\Commands.txt","r")
+    file1 = open("D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Commands.txt","r")
     file1.seek(0) 
     file2 = file1.readline()
     file2 = eval(file2)
 
     actions=[]
-    file_CSV=open('D:\\Codes\\Python\\PROJECTS\\ITSP\\Hand.csv')
+    file_CSV=open('D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Hand.csv')
     reader1 = csv.reader(file_CSV)
 
     hand=list(reader1)
@@ -105,18 +105,17 @@ if option==2:
     file_CSV.close()
     file1.close()
     agree = str(input("Store (Y/N) > "))    
-    if agree in ["Y","y"]:
+    if agree in ["Y","y","Yes","yes"]:
         file2[command_name] = final_predictions
-        file3 = open("D:\\Codes\\Python\\PROJECTS\\ITSP\\Commands.txt","w")
+        file3 = open("D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Commands.txt","w")
         file3.seek(0)
         file3.write(file2)
         file3.close()
-    
 
 #Machine Learning with SVM classification algorithm
 if option==3:
     actions=[]
-    file_CSV=open('D:\\Codes\\Python\\PROJECTS\\ITSP\\Hand.csv')
+    file_CSV=open('D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Hand.csv')
     reader1=csv.reader(file_CSV)
 
     hand=list(reader1)
