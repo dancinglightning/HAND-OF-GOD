@@ -102,13 +102,16 @@ if option==2:
 
     command_name = str(input("Enter command name : "))
     print(command_name,":",final_predictions)
-    agree = str(input("Store (Y/N) > "))
-    if agree in ["Y","y"]:
-
-    else:
-        continue
     file_CSV.close()
-        
+    file1.close()
+    agree = str(input("Store (Y/N) > "))    
+    if agree in ["Y","y"]:
+        file2[command_name] = final_predictions
+        file3 = open("D:\\Codes\\Python\\PROJECTS\\ITSP\\Commands.txt","w")
+        file3.seek(0)
+        file3.write(file2)
+        file3.close()
+    
 
 #Machine Learning with SVM classification algorithm
 if option==3:
