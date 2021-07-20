@@ -177,7 +177,7 @@ if option==3:
 
                 timer += 1
                 if timer == 30:
-                    clutch = False
+                    clutch = False 
                     timer = 0
 
         if (not clutch) and standby:

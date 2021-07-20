@@ -7,7 +7,7 @@ float V2=0.0000;
 float readPin3=A3;
 float V3=0.0000;
 
-float readPin4=A4;
+float readPin4=A4; 
 float V4=0.0000;
 
 int delayTime=100;
@@ -16,7 +16,7 @@ void setup() {
   pinMode(readPin2,INPUT);
   pinMode(readPin3,INPUT);
   pinMode(readPin4,INPUT);
-  Serial.begin(19200);
+  Serial.begin(9600);
 }
 
 void loop() {
