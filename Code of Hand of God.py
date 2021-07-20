@@ -51,7 +51,7 @@ def y_maker(hand):
     return np.array(l)
 
 option = interact()
-arduino = serial.Serial('COM5', 19200, timeout=0.1)
+arduino = serial.Serial('COM5', 9600, timeout=0.1)
 
 #Storing Action photograph values
 if option==1:

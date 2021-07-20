@@ -1,1 +1,1 @@
-{"['Victory', 'Open Hand']": 'Car On'}
+{'''["Victory", "Open Hand"]''': "Car On"}
