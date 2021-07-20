@@ -20,6 +20,7 @@ def interact():
               1. Store Action
               2. Store command
               3. Perform Command
+              4. Developer Option
               ''')
         t=str(input(">>> "))
         if t=="1":
@@ -30,6 +31,9 @@ def interact():
             break
         if t=="3":
             return 3
+            break
+        if t=="4":
+            return 4
             break
         
 def X_maker(hand):
@@ -159,3 +163,10 @@ if option==3:
 
 
     file_CSV.close()
+
+if option==4:
+    while True:
+        data1 = arduino.readline()
+        if (data1):
+            data2 = list(map(eval,str(data1)[2:-5].split("/")))
+            print(data2)
