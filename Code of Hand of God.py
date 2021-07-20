@@ -15,7 +15,7 @@ import pandas as pd
 
 def interact():
     t=""
-    while t!="1" or t!="2":
+    while t!="1" or t!="2" or t!="3" or t!="4":
         print()
         print('''GOD : What is your wish, my child...
 

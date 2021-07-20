@@ -5,39 +5,12 @@ Created on Mon Jun  7 18:49:20 2021
 @author: Hanan
 """
 
-from sklearn.model_selection import train_test_split
-from sklearn.svm import SVC
-import numpy as np
-import csv
 import serial
 import time
-import pandas as pd
 import mouse
 
-def interact():
-    t=""
-    while t!="1" or t!="2":
-        print('''Enter Option Number :
-              1. Store Action
-              2. Store command
-              3. Perform Command
-              4. Developer option
-              ''')
-        t=str(input(">>> "))
-        if t=="1":
-            return 1
-            break
-        if t=="2":
-            return 2
-            break
-        if t=="3":
-            return 3
-            break
-        if t=="4":
-            return 4
-            break
         
-arduino = serial.Serial('COM3', 9600, timeout=0.1)
+arduino = serial.Serial('COM5', 9600, timeout=0.1)
 
 while True:
     data1 = arduino.readline()
