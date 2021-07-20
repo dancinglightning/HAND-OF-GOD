@@ -10,7 +10,7 @@ float V3=0.0000;
 float readPin4=A4;
 float V4=0.0000;
 
-int delayTime=1000;
+int delayTime=100;
 void setup() {
   pinMode(readPin1,INPUT);
   pinMode(readPin2,INPUT);
