@@ -87,18 +87,19 @@ if option==2:
     final_predictions = []
     for learn_i in range(100):
         data1 = arduino.readline()
-        data2 = list(map(eval,str(data1)[2:-5].split("/")))
-        actions = actions + [svm_model_linear.predict(np.array([data2[0:4]]))]
-        if len(actions)>0 and len(final_predictions)>0:
-            if actions[-1] != final_predictions[-1]:
+        if (data1):
+            data2 = list(map(eval,str(data1)[2:-5].split("/")))
+            actions = actions + [svm_model_linear.predict([data2[0:4]])[0]]
+            if len(actions)>0 and len(final_predictions)>0:
+                if actions[-1] != final_predictions[-1]:
+                    final_predictions = final_predictions + [actions[-1]]
+
+            if len(actions)>0 and len(final_predictions)==0:
                 final_predictions = final_predictions + [actions[-1]]
 
-        if len(actions)>0 and len(final_predictions)==0:
-            final_predictions = final_predictions + [actions[-1]]
-
-        if train_len != len(final_predictions):
-            train_len = len(final_predictions)
-            print(final_predictions[-1][0])
+            if train_len != len(final_predictions):
+                train_len = len(final_predictions)
+                print(final_predictions[-1])
 
     command_name = str(input("Enter command name : "))
     print(command_name,":",final_predictions)
@@ -109,7 +110,7 @@ if option==2:
         file2[command_name] = final_predictions
         file3 = open("D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Commands.txt","w")
         file3.seek(0)
-        file3.write(file2)
+        file3.write(str(file2))
         file3.close()
 
 #Machine Learning with SVM classification algorithm
@@ -137,18 +138,19 @@ if option==3:
         if clutch:
             final_predictions = []
             data1 = arduino.readline()
-            data2 = list(map(eval,str(data1)[2:-5].split("/")))
-            actions = actions + [svm_model_linear.predict(np.array([data2[0:4]]))]
-            if len(actions)>0 and len(final_predictions)>0:
-                if actions[-1] != final_predictions[-1]:
+            if (data1):
+                data2 = list(map(eval,str(data1)[2:-5].split("/")))
+                actions = actions + [svm_model_linear.predict([data2[0:4]])[0]]
+                if len(actions)>0 and len(final_predictions)>0:
+                    if actions[-1] != final_predictions[-1]:
+                        final_predictions = final_predictions + [actions[-1]]
+
+                if len(actions)>0 and len(final_predictions)==0:
                     final_predictions = final_predictions + [actions[-1]]
 
-            if len(actions)>0 and len(final_predictions)==0:
-                final_predictions = final_predictions + [actions[-1]]
-
-            if train_len != len(final_predictions):
-                train_len = len(final_predictions)
-                print(final_predictions[-1][0])
+                if train_len != len(final_predictions):
+                    train_len = len(final_predictions)
+                    print(final_predictions[-1])
         
         if (not clutch) and standby:
             standby = False
