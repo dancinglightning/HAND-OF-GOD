@@ -90,13 +90,15 @@ if option==3:
     train_len = 0
     final_predictions = []
     clutch = True
+    standby = True
     while True:
         if clutch:
+            final_predictions = []
             data1 = arduino.readline()
             data2 = list(map(eval,str(data1)[2:-5].split("/")))
-            actions = actions + [svm_model_linear.predict(np.array([data2[0:3]]))]
+            actions = actions + [svm_model_linear.predict(np.array([data2[0:4]]))]
             if len(actions)>0 and len(final_predictions)>0:
-                if actions[-1]!=final_predictions[-1]:
+                if actions[-1] != final_predictions[-1]:
                     final_predictions = final_predictions + [actions[-1]]
 
             if len(actions)>0 and len(final_predictions)==0:
@@ -105,5 +107,11 @@ if option==3:
             if train_len != len(final_predictions):
                 train_len = len(final_predictions)
                 print(final_predictions[-1][0])
+        
+        if (not clutch) and standby:
+            standby = False
+            print("Glove is on Standby ...")
+            print()
+
 
     file_CSV.close()
