@@ -16,13 +16,13 @@ import pandas as pd
 def interact():
     t=""
     while t!="1" or t!="2":
+        print()
         print('''GOD : What is your wish, my child...
 
               1. Store Action
               2. Store command
               3. Perform Command
               4. Developer Option
-              
               ''')
         t=str(input(">>> "))
         if t=="1":
@@ -42,13 +42,20 @@ def X_maker(hand):
     l=[]
     for i in range(1,len(hand)):
        l=l+[[hand[i][0],hand[i][1],hand[i][2],hand[i][3]]]
-    return np.array(l)
+    return np.array(l, dtype=list)
     
 def y_maker(hand):
     l=[]
     for i in range(1,len(hand)):
        l=l+[[hand[i][4]]] 
-    return np.array(l)
+    return np.array(l, dtype=list)
+
+def get_key(my_dict, val):
+    for key, value in my_dict.items():
+         if val == value:
+             return "GOD : Command executed >"+key
+ 
+    return "GOD : Command is unrecognized !!!"
 
 option = interact()
 arduino = serial.Serial('COM5', 9600, timeout=0.1)
@@ -83,7 +90,8 @@ if option==2:
     y=y_maker(hand)
     X_train,X_test,y_train,y_test=train_test_split(X,y,random_state=0)
     svm_model_linear=SVC(kernel='linear',C=1).fit(X_train,y_train)
-    accuracy=svm_model_linear.score(X_test,y_test)        
+    accuracy=svm_model_linear.score(X_test,y_test)   
+    print()     
     print("GOD : Training Accuracy :",100*accuracy,"%")
     print()
     print("GOD : Predicting the performed action...")
@@ -113,7 +121,7 @@ if option==2:
     file1.close()
     agree = str(input("god : Store (Y/N) > "))    
     if agree in ["Y","y","Yes","yes"]:
-        file2[str(final_predictions)] = command_name
+        file2[command_name] = final_predictions
         file3 = open("D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Commands.txt","w")
         file3.seek(0)
         file3.write(str(file2))
@@ -168,10 +176,7 @@ if option==3:
         if (not clutch) and standby:
             standby = False
             if final_predictions!=[]:
-                if str(final_predictions) in file2.keys():
-                    print("GOD : Command executed >",file2[str(final_predictions)])
-                else:
-                    print("GOD : Command is unrecognized !!!")
+                get_key(file2,final_predictions)
                 final_predictions=[]    
                 print("GOD : Glove is on Standby ...")
             if final_predictions==[]:
