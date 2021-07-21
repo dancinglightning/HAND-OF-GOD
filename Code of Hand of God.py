@@ -156,10 +156,6 @@ if option==3:
     clutch = False
     standby = True
     while True:
-        try:
-            if keyboard.read_key() == 'v':
-                clutch = not clutch
-        finally:
             if clutch:
                 standby = True
                 final_predictions = []
@@ -185,14 +181,19 @@ if option==3:
                                 print(final_predictions[-1])
 
             if (not clutch):
-                if final_predictions==[]  and standby:
-                    print("GOD : Glove is on Standby ...")
-                    standby = False
-                elif final_predictions!=[]:
-                    print(get_key(file2,final_predictions))
-                    final_predictions=[]    
-                    print("GOD : Glove is on Standby ...")
-                print()
+                try:
+                    if keyboard.read_key() == 'v':
+                        clutch = not clutch
+                finally:
+                    if final_predictions==[]  and standby:
+                        print("GOD : Glove is on Standby ...")
+                        print()
+                        standby = False
+                    elif final_predictions!=[]:
+                        print(get_key(file2,final_predictions))
+                        final_predictions=[]    
+                        print("GOD : Glove is on Standby ...")
+                        print()
 
 if option==4:
     while True:

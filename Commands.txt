@@ -1,1 +1,1 @@
-{'Car on': ['Victory', 'Closed Hand'], 'Car off': ['Closed hand'], 'Car Forward': ['Open hand']}
+{'Car on': ['Victory', 'Closed Hand'], 'Car off': ['Closed hand'], 'Car Forward': ['Open hand'], 'Vinayak Dance': ['Anti-Yo']}
