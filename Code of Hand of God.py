@@ -153,7 +153,7 @@ if option==3:
 
     train_len = 0
     final_predictions = []
-    clutch = False
+    clutch = True
     standby = True
     while True:
             if clutch:
