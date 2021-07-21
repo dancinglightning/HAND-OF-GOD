@@ -157,6 +157,7 @@ if option==3:
     timer = 0
     while True:
         if clutch:
+            standby = True
             final_predictions = []
             while clutch:
                 data1 = arduino.readline()
@@ -173,11 +174,6 @@ if option==3:
                     if train_len != len(final_predictions):
                         train_len = len(final_predictions)
                         print(final_predictions[-1])
-
-                timer += 1
-                if timer == 30:
-                    clutch = False 
-                    timer = 0
 
         if (not clutch) and standby:
             standby = False
