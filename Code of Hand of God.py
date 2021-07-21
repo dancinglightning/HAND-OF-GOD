@@ -155,7 +155,6 @@ if option==3:
     final_predictions = []
     clutch = False
     standby = True
-    timer = 0
     while True:
         try:
             if keyboard.is_pressed('c'):
