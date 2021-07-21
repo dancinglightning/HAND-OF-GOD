@@ -21,7 +21,7 @@ def interact():
         print('''GOD : What is your wish, my child...
 
               1. Store Action
-              2. Store command
+              2. Store Command
               3. Perform Command
               4. Developer Option
               ''')
@@ -92,7 +92,7 @@ if option==2:
     svm_model_linear=SVC(kernel='linear',C=1).fit(X_train,y_train)
     accuracy=svm_model_linear.score(X_test,y_test)   
     print()     
-    print("GOD : Training Accuracy :",100*accuracy,"%")
+    print("GOD : Training Accuracy >",100*accuracy,"%")
     print()
     print("GOD : Predicting the performed action...")
     print()
@@ -144,7 +144,7 @@ if option==3:
     X_train,X_test,y_train,y_test=train_test_split(X,y,random_state=0)
     svm_model_linear=SVC(kernel='linear',C=1).fit(X_train,y_train)
     accuracy=svm_model_linear.score(X_test,y_test)        
-    print("GOD : Training Accuracy :",100*accuracy,"%")
+    print("GOD : Training Accuracy >",100*accuracy,"%")
     print()
     print("GOD : Predicting the performed action...")
     print()
@@ -153,13 +153,13 @@ if option==3:
 
     train_len = 0
     final_predictions = []
-    clutch = True
+    clutch = False
     standby = True
     timer = 0
     while True:
         try:
-            if keyboard.read_key():
-                clutch = False
+            if keyboard.is_pressed('c'):
+                clutch = not clutch
         except:
             if clutch:
                 standby = True
