@@ -162,7 +162,7 @@ if option==3:
                 print("GOD : Glove is Detecting ...")
                 while clutch:
                     try:
-                        if keyboard.read_key() == 'c':
+                        if keyboard.read_key() == 's':
                             clutch = not clutch
                     finally:
                         data1 = arduino.readline()
@@ -182,7 +182,7 @@ if option==3:
 
             if (not clutch):
                 try:
-                    if keyboard.read_key() == 'v':
+                    if keyboard.read_key() == 'd':
                         clutch = not clutch
                 finally:
                     if final_predictions==[]  and standby:
