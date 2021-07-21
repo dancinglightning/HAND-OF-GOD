@@ -159,10 +159,11 @@ if option==3:
         try:
             if keyboard.is_pressed('c'):
                 clutch = not clutch
-        except:
+        finally:
             if clutch:
                 standby = True
                 final_predictions = []
+                print("GOD : Glove is Detecting ...")
                 while clutch:
                     data1 = arduino.readline()
                     if (data1):
@@ -179,10 +180,10 @@ if option==3:
                             train_len = len(final_predictions)
                             print(final_predictions[-1])
 
-            if (not clutch) and standby:
-                standby = False
-                if final_predictions==[]:
+            if (not clutch):
+                if final_predictions==[]  and standby:
                     print("GOD : Glove is on Standby ...")
+                    standby = False
                 elif final_predictions!=[]:
                     print(get_key(file2,final_predictions))
                     final_predictions=[]    
