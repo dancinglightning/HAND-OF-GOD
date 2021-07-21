@@ -157,7 +157,7 @@ if option==3:
     standby = True
     while True:
         try:
-            if keyboard.is_pressed('c'):
+            if keyboard.read_key() == 'v':
                 clutch = not clutch
         finally:
             if clutch:
@@ -165,20 +165,24 @@ if option==3:
                 final_predictions = []
                 print("GOD : Glove is Detecting ...")
                 while clutch:
-                    data1 = arduino.readline()
-                    if (data1):
-                        data2 = list(map(eval,str(data1)[2:-5].split("/")))
-                        actions = actions + [svm_model_linear.predict([data2[0:4]])[0]]
-                        if len(actions)>0 and len(final_predictions)>0:
-                            if actions[-1] != final_predictions[-1]:
+                    try:
+                        if keyboard.read_key() == 'c':
+                            clutch = not clutch
+                    finally:
+                        data1 = arduino.readline()
+                        if (data1):
+                            data2 = list(map(eval,str(data1)[2:-5].split("/")))
+                            actions = actions + [svm_model_linear.predict([data2[0:4]])[0]]
+                            if len(actions)>0 and len(final_predictions)>0:
+                                if actions[-1] != final_predictions[-1]:
+                                    final_predictions = final_predictions + [actions[-1]]
+
+                            if len(actions)>0 and len(final_predictions)==0:
                                 final_predictions = final_predictions + [actions[-1]]
 
-                        if len(actions)>0 and len(final_predictions)==0:
-                            final_predictions = final_predictions + [actions[-1]]
-
-                        if train_len != len(final_predictions):
-                            train_len = len(final_predictions)
-                            print(final_predictions[-1])
+                            if train_len != len(final_predictions):
+                                train_len = len(final_predictions)
+                                print(final_predictions[-1])
 
             if (not clutch):
                 if final_predictions==[]  and standby:
