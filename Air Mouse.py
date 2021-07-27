@@ -48,9 +48,21 @@ while True:
                 mouse.move(20,0, absolute=False, duration=0.1)
             elif (finger1<525 and finger2<525 and finger3>525 and finger4>525):
                 mouse.click('right')
+<<<<<<< HEAD
             elif (finger1<525 and finger2<525 and finger3>525 and finger4<525):
                 mouse.move(0,-20, absolute=False, duration=0.1)
             elif (finger1<525 and finger2<525 and finger3<525 and finger4>525):
                 mouse.move(0,20, absolute=False, duration=0.1)
             elif (finger1<525 and finger2<525 and finger3<525 and finger4<525):
                 mouse.move(0,0, absolute=False, duration=0.1)
+=======
+            elif (finger1<600 and finger2<600 and finger3>600 and finger4<600):
+                mouse.move(0,-10, absolute=False, duration=0.1)
+            elif (finger1<600 and finger2<600 and finger3<600 and finger4>600):
+                mouse.move(0,10, absolute=False, duration=0.1)
+            elif (finger1<600 and finger2<600 and finger3<600 and finger4<600):
+                mouse.move(0,0, absolute=False, duration=0.1)
+
+
+                
+>>>>>>> 706ff3f08fea9cc7210fc4972eaad2c980c3dc07

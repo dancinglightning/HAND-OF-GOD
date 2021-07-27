@@ -12,6 +12,7 @@ import csv
 import serial
 import time
 import pandas as pd
+import keyboard
 
 def interact():
     t=""
@@ -20,7 +21,7 @@ def interact():
         print('''GOD : What is your wish, my child...
 
               1. Store Action
-              2. Store command
+              2. Store Command
               3. Perform Command
               4. Developer Option
               ''')
@@ -91,7 +92,7 @@ if option==2:
     svm_model_linear=SVC(kernel='linear',C=1).fit(X_train,y_train)
     accuracy=svm_model_linear.score(X_test,y_test)   
     print()     
-    print("GOD : Training Accuracy :",100*accuracy,"%")
+    print("GOD : Training Accuracy >",100*accuracy,"%")
     print()
     print("GOD : Predicting the performed action...")
     print()
@@ -143,7 +144,7 @@ if option==3:
     X_train,X_test,y_train,y_test=train_test_split(X,y,random_state=0)
     svm_model_linear=SVC(kernel='linear',C=1).fit(X_train,y_train)
     accuracy=svm_model_linear.score(X_test,y_test)        
-    print("GOD : Training Accuracy :",100*accuracy,"%")
+    print("GOD : Training Accuracy >",100*accuracy,"%")
     print()
     print("GOD : Predicting the performed action...")
     print()
@@ -154,40 +155,45 @@ if option==3:
     final_predictions = []
     clutch = True
     standby = True
-    timer = 0
     while True:
-        if clutch:
-            final_predictions = []
-            while clutch:
-                data1 = arduino.readline()
-                if (data1):
-                    data2 = list(map(eval,str(data1)[2:-5].split("/")))
-                    actions = actions + [svm_model_linear.predict([data2[0:4]])[0]]
-                    if len(actions)>0 and len(final_predictions)>0:
-                        if actions[-1] != final_predictions[-1]:
-                            final_predictions = final_predictions + [actions[-1]]
+            if clutch:
+                standby = True
+                final_predictions = []
+                print("GOD : Glove is Detecting ...")
+                while clutch:
+                    try:
+                        if keyboard.read_key() == 's':
+                            clutch = not clutch
+                    finally:
+                        data1 = arduino.readline()
+                        if (data1):
+                            data2 = list(map(eval,str(data1)[2:-5].split("/")))
+                            actions = actions + [svm_model_linear.predict([data2[0:4]])[0]]
+                            if len(actions)>0 and len(final_predictions)>0:
+                                if actions[-1] != final_predictions[-1]:
+                                    final_predictions = final_predictions + [actions[-1]]
 
-                    if len(actions)>0 and len(final_predictions)==0:
-                        final_predictions = final_predictions + [actions[-1]]
+                            if len(actions)>0 and len(final_predictions)==0:
+                                final_predictions = final_predictions + [actions[-1]]
 
-                    if train_len != len(final_predictions):
-                        train_len = len(final_predictions)
-                        print(final_predictions[-1])
+                            if train_len != len(final_predictions):
+                                train_len = len(final_predictions)
+                                print(final_predictions[-1])
 
-                timer += 1
-                if timer == 30:
-                    clutch = False 
-                    timer = 0
-
-        if (not clutch) and standby:
-            standby = False
-            if final_predictions==[]:
-                print("GOD : Glove is on Standby ...")
-            elif final_predictions!=[]:
-                print(get_key(file2,final_predictions))
-                final_predictions=[]    
-                print("GOD : Glove is on Standby ...")
-            print()
+            if (not clutch):
+                try:
+                    if keyboard.read_key() == 'd':
+                        clutch = not clutch
+                finally:
+                    if final_predictions==[]  and standby:
+                        print("GOD : Glove is on Standby ...")
+                        print()
+                        standby = False
+                    elif final_predictions!=[]:
+                        print(get_key(file2,final_predictions))
+                        final_predictions=[]    
+                        print("GOD : Glove is on Standby ...")
+                        print()
 
 if option==4:
     while True:
