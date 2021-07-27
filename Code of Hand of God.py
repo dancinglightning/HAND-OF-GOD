@@ -12,7 +12,7 @@ import csv
 import serial
 import time
 import pandas as pd
-import keyboard
+
 
 def interact():
     t=""
@@ -59,7 +59,7 @@ def get_key(my_dict, val):
     return "GOD : Command is unrecognized !!!"
 
 option = interact()
-arduino = serial.Serial('COM5', 9600, timeout=0.1)
+arduino = serial.Serial('COM3', 9600, timeout=0.1)
 
 #Storing Action photograph values
 if option==1:
