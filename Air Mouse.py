@@ -21,36 +21,36 @@ while True:
             finger3=data2[2]
             finger4=data2[3]
 
-            if (finger1>350 and finger2>300 and finger3>300 and finger4>475):
+            if (finger1>350 and finger2>300 and finger3>300 and finger4>500):
                 print("Terminted")
                 break
-            elif (finger1>350 and finger2>300 and finger3>300 and finger4<475):
+            elif (finger1>350 and finger2>300 and finger3>300 and finger4<500):
                 mouse.move(0,0, absolute=False, duration=0.1)
-            elif (finger1>350 and finger2>300 and finger3<300 and finger4>475):
+            elif (finger1>350 and finger2>300 and finger3<300 and finger4>500):
                 mouse.move(0,0, absolute=False, duration=0.1)
-            elif (finger1>350 and finger2>300 and finger3<300 and finger4<475):
+            elif (finger1>350 and finger2>300 and finger3<300 and finger4<500):
                 mouse.click('left')
-            elif (finger1>350 and finger2<300 and finger3>300 and finger4>475):
+            elif (finger1>350 and finger2<300 and finger3>300 and finger4>500):
                 mouse.move(0,0, absolute=False, duration=0.1)
-            elif (finger1>350 and finger2<300 and finger3>300 and finger4<475):
+            elif (finger1>350 and finger2<300 and finger3>300 and finger4<500):
                 mouse.move(-20,-20, absolute=False, duration=0.1)
-            elif (finger1>350 and finger2<300 and finger3<300 and finger4>475):
+            elif (finger1>350 and finger2<300 and finger3<300 and finger4>500):
                 mouse.move(-20,20, absolute=False, duration=0.1)
-            elif (finger1>350 and finger2<300 and finger3<300 and finger4<475):
+            elif (finger1>350 and finger2<300 and finger3<300 and finger4<500):
                 mouse.move(-20,0, absolute=False, duration=0.1)
-            elif (finger1<350 and finger2>300 and finger3>300 and finger4>475):
+            elif (finger1<350 and finger2>300 and finger3>300 and finger4>500):
                 mouse.move(0,0, absolute=False, duration=0.1)
-            elif (finger1<350 and finger2>300 and finger3>300 and finger4<475):
+            elif (finger1<350 and finger2>300 and finger3>300 and finger4<500):
                 mouse.move(20,-20, absolute=False, duration=0.1)
-            elif (finger1<350 and finger2>300 and finger3<300 and finger4>475):
+            elif (finger1<350 and finger2>300 and finger3<300 and finger4>500):
                 mouse.move(20,20, absolute=False, duration=0.1)
-            elif (finger1<350 and finger2>300 and finger3<300 and finger4<475):
+            elif (finger1<350 and finger2>300 and finger3<300 and finger4<500):
                 mouse.move(20,0, absolute=False, duration=0.1)
-            elif (finger1<350 and finger2<300 and finger3>300 and finger4>475):
+            elif (finger1<350 and finger2<300 and finger3>300 and finger4>500):
                 mouse.click('right')
-            elif (finger1<350 and finger2<300 and finger3>300 and finger4<475):
+            elif (finger1<350 and finger2<300 and finger3>300 and finger4<500):
                 mouse.move(0,-20, absolute=False, duration=0.1)
-            elif (finger1<350 and finger2<300 and finger3<300 and finger4>475):
+            elif (finger1<350 and finger2<300 and finger3<300 and finger4>500):
                 mouse.move(0,20, absolute=False, duration=0.1)
-            elif (finger1<350 and finger2<300 and finger3<300 and finger4<475):
+            elif (finger1<350 and finger2<300 and finger3<300 and finger4<500):
                 mouse.move(0,0, absolute=False, duration=0.1)
