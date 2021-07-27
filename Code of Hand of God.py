@@ -12,6 +12,7 @@ import csv
 import serial
 import time
 import pandas as pd
+import keyboard
 
 
 def interact():
