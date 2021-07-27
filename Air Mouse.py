@@ -9,7 +9,7 @@ import serial
 import time
 import mouse
 
-arduino = serial.Serial('COM5', 9600, timeout=0.1)
+arduino = serial.Serial('COM3', 9600, timeout=0.1)
 
 while True:
         data1 = arduino.readline()
@@ -21,36 +21,36 @@ while True:
             finger3=data2[2]
             finger4=data2[3]
 
-            if (finger1>600 and finger2>600 and finger3>600 and finger4>600):
+            if (finger1>525 and finger2>525 and finger3>525 and finger4>525):
                 print("Terminted")
                 break
-            elif (finger1>600 and finger2>600 and finger3>600 and finger4<600):
+            elif (finger1>525 and finger2>525 and finger3>525 and finger4<525):
                 mouse.move(0,0, absolute=False, duration=0.1)
-            elif (finger1>600 and finger2>600 and finger3<600 and finger4>600):
+            elif (finger1>525 and finger2>525 and finger3<525 and finger4>525):
                 mouse.move(0,0, absolute=False, duration=0.1)
-            elif (finger1>600 and finger2>600 and finger3<600 and finger4<600):
+            elif (finger1>525 and finger2>525 and finger3<525 and finger4<525):
                 mouse.click('left')
-            elif (finger1>600 and finger2<600 and finger3>600 and finger4>600):
+            elif (finger1>525 and finger2<525 and finger3>525 and finger4>525):
                 mouse.move(0,0, absolute=False, duration=0.1)
-            elif (finger1>600 and finger2<600 and finger3>600 and finger4<600):
-                mouse.move(-10,-10, absolute=False, duration=0.1)
-            elif (finger1>600 and finger2<600 and finger3<600 and finger4>600):
-                mouse.move(-10,10, absolute=False, duration=0.1)
-            elif (finger1>600 and finger2<600 and finger3<600 and finger4<600):
-                mouse.move(-10,0, absolute=False, duration=0.1)
-            elif (finger1<600 and finger2>600 and finger3>600 and finger4>600):
+            elif (finger1>525 and finger2<525 and finger3>525 and finger4<525):
+                mouse.move(-20,-20, absolute=False, duration=0.1)
+            elif (finger1>525 and finger2<525 and finger3<525 and finger4>525):
+                mouse.move(-20,20, absolute=False, duration=0.1)
+            elif (finger1>525 and finger2<525 and finger3<525 and finger4<525):
+                mouse.move(-20,0, absolute=False, duration=0.1)
+            elif (finger1<525 and finger2>525 and finger3>525 and finger4>525):
                 mouse.move(0,0, absolute=False, duration=0.1)
-            elif (finger1<600 and finger2>600 and finger3>600 and finger4<600):
-                mouse.move(10,-10, absolute=False, duration=0.1)
-            elif (finger1<600 and finger2>600 and finger3<600 and finger4>600):
-                mouse.move(10,10, absolute=False, duration=0.1)
-            elif (finger1<600 and finger2>600 and finger3<600 and finger4<600):
-                mouse.move(10,0, absolute=False, duration=0.1)
-            elif (finger1<600 and finger2<600 and finger3>600 and finger4>600):
+            elif (finger1<525 and finger2>525 and finger3>525 and finger4<525):
+                mouse.move(20,-20, absolute=False, duration=0.1)
+            elif (finger1<525 and finger2>525 and finger3<525 and finger4>525):
+                mouse.move(20,20, absolute=False, duration=0.1)
+            elif (finger1<525 and finger2>525 and finger3<525 and finger4<525):
+                mouse.move(20,0, absolute=False, duration=0.1)
+            elif (finger1<525 and finger2<525 and finger3>525 and finger4>525):
                 mouse.click('right')
-            elif (finger1<600 and finger2<600 and finger3>600 and finger4<600):
-                mouse.move(0,-10, absolute=False, duration=0.1)
-            elif (finger1<600 and finger2<600 and finger3<600 and finger4>600):
-                mouse.move(0,10, absolute=False, duration=0.1)
-            elif (finger1<600 and finger2<600 and finger3<600 and finger4<600):
+            elif (finger1<525 and finger2<525 and finger3>525 and finger4<525):
+                mouse.move(0,-20, absolute=False, duration=0.1)
+            elif (finger1<525 and finger2<525 and finger3<525 and finger4>525):
+                mouse.move(0,20, absolute=False, duration=0.1)
+            elif (finger1<525 and finger2<525 and finger3<525 and finger4<525):
                 mouse.move(0,0, absolute=False, duration=0.1)
