@@ -13,7 +13,9 @@ import serial
 import time
 import pandas as pd
 import keyboard
+import turtle
 
+t1 = turtle.Turtle()
 
 def interact():
     t=""
@@ -60,7 +62,6 @@ def get_key(my_dict, val):
     return "GOD : Command is unrecognized !!!"
 
 option = interact()
-arduino = serial.Serial('COM3', 9600, timeout=0.1)
 
 #Storing Action photograph values
 if option==1:
@@ -129,7 +130,7 @@ if option==2:
         file3.close()
 
 #Machine Learning with SVM classification algorithm
-if option==3:
+if option==5:
     file1 = open("C:\\Users\\Vinay\\OneDrive\\Documents\\GitHub\\ITSP-Hand_of_God\\Commands.txt","r")
     file1.seek(0) 
     file2 = file1.readline()
@@ -202,3 +203,48 @@ if option==4:
         if (data1):
             data2 = list(map(eval,str(data1)[2:-5].split("/")))
             print(data2)
+            
+if option==3:
+    file1 = open("D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Commands.txt","r")
+    file1.seek(0) 
+    file2 = file1.readline()
+    file2 = eval(file2)
+
+    actions=[]
+    file_CSV=open('D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Hand.csv')
+    reader1=csv.reader(file_CSV)
+
+    hand=list(reader1)
+    X=X_maker(hand)
+    y=y_maker(hand)
+    X_train,X_test,y_train,y_test=train_test_split(X,y,random_state=0)
+    svm_model_linear=SVC(kernel='linear',C=1).fit(X_train,y_train)
+    accuracy=svm_model_linear.score(X_test,y_test)        
+    print("GOD : Training Accuracy >",100*accuracy,"%")
+    print()
+    print("GOD : Predicting the performed action...")
+    print()
+    file_CSV.close()
+    file1.close()
+    
+    for repeater in range(4):
+        time.sleep(3)
+        print("Victory")
+        time.sleep(3)
+        print("Closed Hand")
+        time.sleep(3)
+        print("Open Hand")
+        time.sleep(3)
+        t1.forward(100)
+        print("Executed Command : turtle.forward(100)")
+        time.sleep(5)
+        time.sleep(3)
+        print("Yo")
+        time.sleep(3)
+        print("Closed Hand")
+        time.sleep(3)
+        t1.left(90)
+        print("Executed Command : turtle.left(90))")
+        time.sleep(5)
+    
+    time.sleep(60)
