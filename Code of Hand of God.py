@@ -17,7 +17,7 @@ import keyboard
 
 def interact():
     t=""
-    while t!="1" or t!="2" or t!="3" or t!="4":
+    while t!="1" or t!="2" or t!="3" or t!="4" or t!="5":
         print()
         print('''GOD : What is your wish, my child...
 
@@ -25,6 +25,7 @@ def interact():
               2. Store Command
               3. Perform Command
               4. Developer Option
+              5. Air Mouse
               ''')
         t=str(input(">>> "))
         if t=="1":
@@ -38,6 +39,9 @@ def interact():
             break
         if t=="4":
             return 4
+            break
+        if t=="5":
+            return 5
             break
         
 def X_maker(hand):
@@ -202,3 +206,48 @@ if option==4:
         if (data1):
             data2 = list(map(eval,str(data1)[2:-5].split("/")))
             print(data2)
+            
+            
+if option==5:
+    while True:
+        data1 = arduino.readline()
+        if (data1):
+            print("God : Air Mouse mode > Activated")
+            finger1=data2[0]
+            finger2=data2[1]
+            finger3=data2[2]
+            finger4=data2[3]
+
+            if (finger1>420 and finger2>250 and finger3>250 and finger4>360):
+                print("Terminted")
+                break
+            elif (finger1>420 and finger2>250 and finger3>250 and finger4<360):
+                mouse.move(0,0, absolute=False, duration=0.1)
+            elif (finger1>420 and finger2>250 and finger3<250 and finger4>360):
+                mouse.move(0,0, absolute=False, duration=0.1)
+            elif (finger1>420 and finger2>250 and finger3<250 and finger4<360):
+                mouse.click('left')
+            elif (finger1>420 and finger2<250 and finger3>250 and finger4>360):
+                mouse.move(0,0, absolute=False, duration=0.1)
+            elif (finger1>420 and finger2<250 and finger3>250 and finger4<360):
+                mouse.move(-20,-20, absolute=False, duration=0.1)
+            elif (finger1>420 and finger2<250 and finger3<250 and finger4>360):
+                mouse.move(-20,20, absolute=False, duration=0.1)
+            elif (finger1>420 and finger2<250 and finger3<250 and finger4<360):
+                mouse.move(-20,0, absolute=False, duration=0.1)
+            elif (finger1<420 and finger2>250 and finger3>250 and finger4>360):
+                mouse.move(0,0, absolute=False, duration=0.1)
+            elif (finger1<420 and finger2>250 and finger3>250 and finger4<360):
+                mouse.move(20,-20, absolute=False, duration=0.1)
+            elif (finger1<420 and finger2>250 and finger3<250 and finger4>360):
+                mouse.move(20,20, absolute=False, duration=0.1)
+            elif (finger1<420 and finger2>250 and finger3<250 and finger4<360):
+                mouse.move(20,0, absolute=False, duration=0.1)
+            elif (finger1<420 and finger2<250 and finger3>250 and finger4>360):
+                mouse.click('right')
+            elif (finger1<420 and finger2<250 and finger3>250 and finger4<360):
+                mouse.move(0,-20, absolute=False, duration=0.1)
+            elif (finger1<420 and finger2<250 and finger3<250 and finger4>360):
+                mouse.move(0,20, absolute=False, duration=0.1)
+            elif (finger1<420 and finger2<250 and finger3<250 and finger4<360):
+                mouse.move(0,0, absolute=False, duration=0.1)
