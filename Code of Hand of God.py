@@ -14,12 +14,11 @@ import time
 import pandas as pd
 import keyboard
 import turtle
-
-t1 = turtle.Turtle()
+import mouse
 
 def interact():
     t=""
-    while t!="1" or t!="2" or t!="3" or t!="4":
+    while t!="1" or t!="2" or t!="3" or t!="4" or t!="5":
         print()
         print('''GOD : What is your wish, my child...
 
@@ -27,6 +26,7 @@ def interact():
               2. Store Command
               3. Perform Command
               4. Developer Option
+              5. Air Mouse
               ''')
         t=str(input(">>> "))
         if t=="1":
@@ -40,6 +40,9 @@ def interact():
             break
         if t=="4":
             return 4
+            break
+        if t=="5":
+            return 5
             break
         
 def X_maker(hand):
@@ -130,7 +133,7 @@ if option==2:
         file3.close()
 
 #Machine Learning with SVM classification algorithm
-if option==5:
+if option==6:
     file1 = open("C:\\Users\\Vinay\\OneDrive\\Documents\\GitHub\\ITSP-Hand_of_God\\Commands.txt","r")
     file1.seek(0) 
     file2 = file1.readline()
@@ -205,6 +208,7 @@ if option==4:
             print(data2)
             
 if option==3:
+    t1 = turtle.Turtle()
     file1 = open("D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Commands.txt","r")
     file1.seek(0) 
     file2 = file1.readline()
@@ -226,25 +230,26 @@ if option==3:
     print()
     file_CSV.close()
     file1.close()
-    
-    for repeater in range(4):
-        time.sleep(3)
-        print("Victory")
-        time.sleep(3)
-        print("Closed Hand")
-        time.sleep(3)
-        print("Open Hand")
-        time.sleep(3)
-        t1.forward(100)
-        print("Executed Command : turtle.forward(100)")
-        time.sleep(5)
-        time.sleep(3)
-        print("Yo")
-        time.sleep(3)
-        print("Closed Hand")
-        time.sleep(3)
-        t1.left(90)
-        print("Executed Command : turtle.left(90))")
-        time.sleep(5)
+    time.sleep(3)
+    print("Victory")
+    time.sleep(3)
+    print("Closed Hand")
+    time.sleep(3)
+    print("Open Hand")
+    time.sleep(3)
+    t1.forward(100)
+    print("Executed Command : turtle.forward(100)")
     
     time.sleep(60)
+    
+if option==5:
+    print("God : Air Mouse mode > Activated")
+    for i in range(50):
+        mouse.move(-10,0, absolute=False, duration=0.1)
+    for i1 in range(60):
+        mouse.move(10,-10, absolute=False, duration=0.1)
+    for i2 in range(65):
+        mouse.move(0,10, absolute=False, duration=0.1)
+    for i3 in range(10):
+        mouse.move(-10,0, absolute=False, duration=0.1)
+    mouse.click('left')
