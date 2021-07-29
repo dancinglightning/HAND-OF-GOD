@@ -209,13 +209,13 @@ if option==4:
             
 if option==3:
     t1 = turtle.Turtle()
-    file1 = open("D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Commands.txt","r")
+    file1 = open("C:\\Users\\Vinay\\OneDrive\\Documents\\GitHub\\ITSP-Hand_of_God\\Commands.txt","r")
     file1.seek(0) 
     file2 = file1.readline()
     file2 = eval(file2)
 
     actions=[]
-    file_CSV=open('D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Hand.csv')
+    file_CSV=open('C:\\Users\\Vinay\\OneDrive\\Documents\\GitHub\\ITSP-Hand_of_God\\Hand.csv')
     reader1=csv.reader(file_CSV)
 
     hand=list(reader1)
@@ -230,13 +230,13 @@ if option==3:
     print()
     file_CSV.close()
     file1.close()
-    time.sleep(3)
+    time.sleep(6)
     print("Victory")
-    time.sleep(3)
+    time.sleep(5)
     print("Closed Hand")
-    time.sleep(3)
+    time.sleep(5)
     print("Open Hand")
-    time.sleep(3)
+    time.sleep(5)
     t1.forward(100)
     print("Executed Command : turtle.forward(100)")
     
@@ -244,12 +244,17 @@ if option==3:
     
 if option==5:
     print("God : Air Mouse mode > Activated")
+    time.sleep(1)
     for i in range(50):
         mouse.move(-10,0, absolute=False, duration=0.1)
+    time.sleep(1)
     for i1 in range(60):
         mouse.move(10,-10, absolute=False, duration=0.1)
+    time.sleep(1)
     for i2 in range(65):
         mouse.move(0,10, absolute=False, duration=0.1)
+    time.sleep(1)
     for i3 in range(10):
         mouse.move(-10,0, absolute=False, duration=0.1)
+    time.sleep(1)
     mouse.click('left')
