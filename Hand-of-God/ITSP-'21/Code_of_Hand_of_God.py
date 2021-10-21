@@ -13,11 +13,12 @@ import serial
 import time
 import pandas as pd
 import keyboard
+import mouse
 
 
 def interact():
     t = ""
-    while t != "1" or t != "2" or t != "3" or t != "4":
+    while t != "1" or t != "2" or t != "3" or t != "4" or t != "5":
         print()
         print(
             """GOD : What is your wish, my child...
@@ -26,6 +27,7 @@ def interact():
               2. Store Command
               3. Perform Command
               4. Developer Option
+              5. Air Mouse
               """
         )
         t = str(input(">>> "))
@@ -40,6 +42,9 @@ def interact():
             break
         if t == "4":
             return 4
+            break
+        if t == "5":
+            return 5
             break
 
 
@@ -66,12 +71,12 @@ def get_key(my_dict, val):
 
 
 option = interact()
-arduino = serial.Serial("COM5", 9600, timeout=0.1)
+arduino = serial.Serial("COM3", 9600, timeout=0.1)
 
 # Storing Action photograph values
 if option == 1:
     with open(
-        "D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Hand.csv",
+        "C:\\Users\\Vinay\\OneDrive\\Documents\\GitHub\\ITSP-Hand_of_God\\Hand.csv",
         "a",
         encoding="UTF8",
         newline="",
@@ -88,13 +93,18 @@ if option == 1:
 
 # Storing Action sequences
 if option == 2:
-    file1 = open("D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Commands.txt", "r")
+    file1 = open(
+        "C:\\Users\\Vinay\\OneDrive\\Documents\\GitHub\\ITSP-Hand_of_God\\Commands.txt",
+        "r",
+    )
     file1.seek(0)
     file2 = file1.readline()
     file2 = eval(file2)
 
     actions = []
-    file_CSV = open("D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Hand.csv")
+    file_CSV = open(
+        "C:\\Users\\Vinay\\OneDrive\\Documents\\GitHub\\ITSP-Hand_of_God\\Hand.csv"
+    )
     reader1 = csv.reader(file_CSV)
 
     hand = list(reader1)
@@ -134,20 +144,28 @@ if option == 2:
     agree = str(input("god : Store (Y/N) > "))
     if agree in ["Y", "y", "Yes", "yes"]:
         file2[command_name] = final_predictions
-        file3 = open("D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Commands.txt", "w")
+        file3 = open(
+            "C:\\Users\\Vinay\\OneDrive\\Documents\\GitHub\\ITSP-Hand_of_God\\Commands.txt",
+            "w",
+        )
         file3.seek(0)
         file3.write(str(file2))
         file3.close()
 
 # Machine Learning with SVM classification algorithm
 if option == 3:
-    file1 = open("D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Commands.txt", "r")
+    file1 = open(
+        "C:\\Users\\Vinay\\OneDrive\\Documents\\GitHub\\ITSP-Hand_of_God\\Commands.txt",
+        "r",
+    )
     file1.seek(0)
     file2 = file1.readline()
     file2 = eval(file2)
 
     actions = []
-    file_CSV = open("D:\\Codes\\Python\\PROJECTS\\ITSP-Hand_of_God\\Hand.csv")
+    file_CSV = open(
+        "C:\\Users\\Vinay\\OneDrive\\Documents\\GitHub\\ITSP-Hand_of_God\\Hand.csv"
+    )
     reader1 = csv.reader(file_CSV)
 
     hand = list(reader1)
@@ -165,7 +183,7 @@ if option == 3:
 
     train_len = 0
     final_predictions = []
-    clutch = False
+    clutch = True
     standby = True
     while True:
         if clutch:
@@ -174,7 +192,7 @@ if option == 3:
             print("GOD : Glove is Detecting ...")
             while clutch:
                 try:
-                    if keyboard.read_key() == "c":
+                    if keyboard.read_key() == "s":
                         clutch = not clutch
                 finally:
                     data1 = arduino.readline()
@@ -194,7 +212,7 @@ if option == 3:
 
         if not clutch:
             try:
-                if keyboard.read_key() == "v":
+                if keyboard.read_key() == "d":
                     clutch = not clutch
             finally:
                 if final_predictions == [] and standby:
@@ -202,7 +220,7 @@ if option == 3:
                     print()
                     standby = False
                 elif final_predictions != []:
-                    eval(get_key(file2, final_predictions))
+                    print(get_key(file2, final_predictions))
                     final_predictions = []
                     print("GOD : Glove is on Standby ...")
                     print()
@@ -213,3 +231,48 @@ if option == 4:
         if data1:
             data2 = list(map(eval, str(data1)[2:-5].split("/")))
             print(data2)
+
+
+if option == 5:
+    while True:
+        data1 = arduino.readline()
+        if data1:
+            print("God : Air Mouse mode > Activated")
+            finger1 = data2[0]
+            finger2 = data2[1]
+            finger3 = data2[2]
+            finger4 = data2[3]
+
+            if finger1 > 420 and finger2 > 250 and finger3 > 250 and finger4 > 360:
+                print("Terminted")
+                break
+            elif finger1 > 420 and finger2 > 250 and finger3 > 250 and finger4 < 360:
+                mouse.move(0, 0, absolute=False, duration=0.1)
+            elif finger1 > 420 and finger2 > 250 and finger3 < 250 and finger4 > 360:
+                mouse.move(0, 0, absolute=False, duration=0.1)
+            elif finger1 > 420 and finger2 > 250 and finger3 < 250 and finger4 < 360:
+                mouse.click("left")
+            elif finger1 > 420 and finger2 < 250 and finger3 > 250 and finger4 > 360:
+                mouse.move(0, 0, absolute=False, duration=0.1)
+            elif finger1 > 420 and finger2 < 250 and finger3 > 250 and finger4 < 360:
+                mouse.move(-20, -20, absolute=False, duration=0.1)
+            elif finger1 > 420 and finger2 < 250 and finger3 < 250 and finger4 > 360:
+                mouse.move(-20, 20, absolute=False, duration=0.1)
+            elif finger1 > 420 and finger2 < 250 and finger3 < 250 and finger4 < 360:
+                mouse.move(-20, 0, absolute=False, duration=0.1)
+            elif finger1 < 420 and finger2 > 250 and finger3 > 250 and finger4 > 360:
+                mouse.move(0, 0, absolute=False, duration=0.1)
+            elif finger1 < 420 and finger2 > 250 and finger3 > 250 and finger4 < 360:
+                mouse.move(20, -20, absolute=False, duration=0.1)
+            elif finger1 < 420 and finger2 > 250 and finger3 < 250 and finger4 > 360:
+                mouse.move(20, 20, absolute=False, duration=0.1)
+            elif finger1 < 420 and finger2 > 250 and finger3 < 250 and finger4 < 360:
+                mouse.move(20, 0, absolute=False, duration=0.1)
+            elif finger1 < 420 and finger2 < 250 and finger3 > 250 and finger4 > 360:
+                mouse.click("right")
+            elif finger1 < 420 and finger2 < 250 and finger3 > 250 and finger4 < 360:
+                mouse.move(0, -20, absolute=False, duration=0.1)
+            elif finger1 < 420 and finger2 < 250 and finger3 < 250 and finger4 > 360:
+                mouse.move(0, 20, absolute=False, duration=0.1)
+            elif finger1 < 420 and finger2 < 250 and finger3 < 250 and finger4 < 360:
+                mouse.move(0, 0, absolute=False, duration=0.1)
