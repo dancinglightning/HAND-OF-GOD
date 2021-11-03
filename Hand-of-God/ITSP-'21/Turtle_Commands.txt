@@ -1,1 +1,0 @@
-{'turtle.forward(10)': ['Victory', 'Closed Hand']}
