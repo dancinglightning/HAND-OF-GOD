@@ -1,3 +1,3 @@
-# ZEXTREX-Robotics
+# Hand of God
 
-Repo for keeping codes of various projects ZEXTREX Robotics
+Repo for keeping codes of Hand of God for Technovation 2021
