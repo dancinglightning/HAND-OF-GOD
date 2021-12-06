@@ -1,0 +1,1 @@
+{'Car on': ['Victory', 'Closed'], 'Car ON': ['Closed hand'], 'Move Forward': ['Closed hand'], 'Turtle.forward(50)': ['Yo']}
