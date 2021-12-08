@@ -1,8 +1,9 @@
-# Hand of God (Technovation '21)
+# Hand of God
 
-Branch for keeping codes of Hand of God for Technovation 2021
+Repo for keeping codes of Hand of God
 
 - Hanan Basheer
 - Shivam Kumbhar
 - Vinayak Goyal
 - Vrinda Goel
+- Sidhant Bose
