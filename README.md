@@ -2,6 +2,8 @@
 
 Repo for keeping codes of Hand of God
 
+### Team Members
+
 - Hanan Basheer
 - Shivam Kumbhar
 - Vinayak Goyal
