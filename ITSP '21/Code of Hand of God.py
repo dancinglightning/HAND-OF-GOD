@@ -15,6 +15,7 @@ import pandas as pd
 import keyboard
 import turtle
 import mouse
+import os
 
 def interact():
     t=""
@@ -68,7 +69,7 @@ option = interact()
 
 #Storing Action photograph values
 if option==1:
-    with open('C:\\Users\\Vinay\\OneDrive\\Documents\\GitHub\\ITSP-Hand_of_God\\Hand.csv', 'a', encoding='UTF8', newline='') as f:
+    with open(os.getcwd() + "\\Hand.csv", 'a', encoding='UTF8', newline='') as f:
         writer1 = csv.writer(f)
         action_name = input(str("GOD : Action name >>> "))
         print("GOD : Analyzing Input...")
@@ -81,13 +82,13 @@ if option==1:
 
 #Storing Action sequences
 if option==2:
-    file1 = open("C:\\Users\\Vinay\\OneDrive\\Documents\\GitHub\\ITSP-Hand_of_God\\Commands.txt","r")
+    file1 = open(os.getcwd() + "\\Commands.txt","r")
     file1.seek(0) 
     file2 = file1.readline()
     file2 = eval(file2)
 
     actions=[]
-    file_CSV=open('C:\\Users\\Vinay\\OneDrive\\Documents\\GitHub\\ITSP-Hand_of_God\\Hand.csv')
+    file_CSV=open(os.getcwd() + "\\Hand.csv")
     reader1 = csv.reader(file_CSV)
 
     hand=list(reader1)
@@ -127,20 +128,20 @@ if option==2:
     agree = str(input("god : Store (Y/N) > "))    
     if agree in ["Y","y","Yes","yes"]:
         file2[command_name] = final_predictions
-        file3 = open("C:\\Users\\Vinay\\OneDrive\\Documents\\GitHub\\ITSP-Hand_of_God\\Commands.txt","w")
+        file3 = open("os.getcwd() + '\\Commands.txt","w")
         file3.seek(0)
         file3.write(str(file2))
         file3.close()
 
 #Machine Learning with SVM classification algorithm
 if option==6:
-    file1 = open("C:\\Users\\Vinay\\OneDrive\\Documents\\GitHub\\ITSP-Hand_of_God\\Commands.txt","r")
+    file1 = open(os.getcwd() + "\\Commands.txt","r")
     file1.seek(0) 
     file2 = file1.readline()
     file2 = eval(file2)
 
     actions=[]
-    file_CSV=open('C:\\Users\\Vinay\\OneDrive\\Documents\\GitHub\\ITSP-Hand_of_God\\Hand.csv')
+    file_CSV=open(os.getcwd() + "\\Hand.csv")
     reader1=csv.reader(file_CSV)
 
     hand=list(reader1)
@@ -209,13 +210,13 @@ if option==4:
             
 if option==3:
     t1 = turtle.Turtle()
-    file1 = open("C:\\Users\\Vinay\\OneDrive\\Documents\\GitHub\\ITSP-Hand_of_God\\Commands.txt","r")
+    file1 = open(os.getcwd() + "\\Commands.txt","r")
     file1.seek(0) 
     file2 = file1.readline()
     file2 = eval(file2)
 
     actions=[]
-    file_CSV=open('C:\\Users\\Vinay\\OneDrive\\Documents\\GitHub\\ITSP-Hand_of_God\\Hand.csv')
+    file_CSV=open(os.getcwd() + "\\Hand.csv")
     reader1=csv.reader(file_CSV)
 
     hand=list(reader1)
