@@ -1,0 +1,200 @@
+\documentclass[10pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{enumitem}
+\usepackage[a4paper,bottom=0.6in,left=0.75in,right=0.75in,top=0.9in]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{color}
+\usepackage{ragged2e}
+\linespread{1.07}
+\justifying
+\definecolor{myblue}{RGB}{76,81,150}
+
+\newcommand{\xfill}[2][1ex]{
+	\dimen0=#2\advance\dimen0 by #1
+	\leaders\hrule height \dimen0 depth -#1\hfill
+}
+\titleformat{\section}{\large\scshape\raggedright}{}{0em}{}
+
+\renewcommand\labelitemi{\small$\bullet$}
+%\renewcommand\labelitemi{\raisebox{0.4ex}{\tiny$\bullet$}}
+%\renewcommand{\labelitemi}{$\cdot$}
+
+\pagenumbering{gobble}
+
+\begin{document}
+\vspace*{3.6 cm}
+\hspace{-18 pt}
+\textit{}
+\vspace{-10pt}
+ Pursuing a \textbf{Minor in Computer Science and Engineering} from the \textbf{Department of CSE, IIT Bombay}
+\section*{{\color{myblue}{\LARGE \textbf{Scholastic Achievements}}\xfill[0pt]{0.5pt}}}
+\vspace{-8pt}
+\begin{itemize}[itemsep = -0.6em, leftmargin=9pt]
+    \item Acquired \textbf{Department Rank 8} in \textbf{B.Tech Aerospace}\hfill \textit{('20)}
+ \item Awarded a \textbf{Branch Change} to \textbf{Aerospace Engineering (B. Tech Programme)} from \textbf{Chemistry (BS Programme)}
+based on exceptional academic performance in the first year among all freshers\hfill \textit{('20)}
+	\item Attained \textbf{99.38} percentile among \textbf{1.2 million} candidates in \textbf{JEE Mains} organized by \textbf{NTA}  \hfill \textit{('20)}
+	\item Secured \textbf{98} percentile among almost \textbf{2.5 Lakh} candidates in \textbf{JEE Advanced} conducted by \textbf{IIT Delhi} \hfill \textit{('20)}
+ \item Scored \textbf{372 marks out of 450} in \textbf{Birla Institute of Science and Technology Aptitude Test}, qualifying for \textbf{B.Tech Computer Science} in \textbf{BITS Pilani} on \textbf{Pilani Campus, Rajasthan}\hfill \textit{('20)}
+ \item Secured an \textbf{All India Rank 101-500} in the Pre-Board International Scholarship Examination (PBISE)\hfill \textit{('19)}
+     \item Among \textbf{Top 600} students qualified for second round of \textbf{Science and Maths Talent Examination (SMTE)} conducted by \textbf{DPS Society} in collaboration with \textbf{Science Olympiad Foundation (SOF)} \hfill \textit{('18)}
+     \item Qualified first round of the prestigious \textbf{Dr. Homi Bhabha Balvaidnyanik Competition} \hfill \textit{('17)}
+		\item Secured distinction of \textbf{Zonal level Gold medal} in \textbf{National Science Olympiad} conducted by \textbf{SOF}\hfill \textit{('15)}
+\end{itemize}
+\vspace{-10pt}
+\section*{{\color{myblue}{\LARGE \textbf{Professional Experience}}\xfill[0pt]{0.5pt}}}
+\vspace{-8pt}
+\textbf{Crammn Interns} | \textit{Crammn} \hfill\textit{ May '21 - Present}
+\vspace{-8pt}
+	\begin{itemize}[itemsep = -0.6em, leftmargin=9pt]
+    \item Crammn is a startup providing a \textbf{Peer to Peer Learning Platform} for students busy with academics and extracurricular activities
+    \item Part of \textbf{20 member contigent} of mentors, selected especially for \textbf{course explanation} and \textbf{video creation}
+		\item Conceptualized and created videos for core and minor courses \textbf{ME 119, CH 104, BB 101, Minor CS 224 } for Midsems and Endsems, which proved beneficial for the registered students in these courses.
+    \end{itemize}
+    \vspace{-3pt}
+    \textbf{Python Contributer} | \textit{Python Software Foundation}
+\hfill\textit{Aug '21 - Present}
+\vspace{-8pt}
+    \begin{itemize}[itemsep = -0.6em, leftmargin=9pt]
+    	\item Certified as \textbf{Contributer} for Python version control repository \textbf{CPython} on \textbf{Github}
+        \item Applied for Pull Request for appending crucial documentation errors for \textbf{Python 3.9}
+    \end{itemize}
+    
+    \vspace{-10pt}
+\section*{{\color{myblue}{\LARGE \textbf{Positions Of Responsibility}}\xfill[0pt]{0.5pt}}}
+\vspace{-8pt}
+\textbf{Controls Engineer} | \textit{Team Sedrica, Innovation Cell, IIT Bombay} \hfill\textit{ Sep '21 - Present}\\
+\textit{Innovation Cell  facilitates technical startups, foster an atmosphere of \textbf{innovation }and \textbf{entrepreneurship}}
+\vspace{-8pt}
+	\begin{itemize}[itemsep = -0.6em, leftmargin=9pt]
+		\item Designing code for the \textbf{Non-Linear Model Predictive (NMPC) algorithm} for the Self Driving Car (SeDriCa) being
+developed by IIT Bombay for the  \textbf{Intelligent Ground Vehicle Competition (IGVC) '22}
+	\item Member of the team in charge of \textbf{planning}, \textbf{organizing} and \textbf{publicizing }events under Innovation Cell
+
+    \end{itemize}
+    \vspace{-3pt}
+\hspace{1pt}\textbf{Mood Indigo eSports Co-ordinator} | \textit{51st Edition} | \textit{Mood Indigo, IIT Bombay}\hfill\textit{May'21 - Present}\\
+\textit{Asia's Largest College Cultural Festival | Viewership: 100k+ | Events: 100+ | 1,50,000+ footfall}
+\vspace{-8pt}
+ \begin{itemize} [itemsep=-0.6em, leftmargin=9pt]
+\item Assisting in \textbf{conceptualization} and \textbf{execution} of innovative ambience across the \textbf{Mood Indigo platform}
+\item Attempting to bring Mood Indigo to \textbf{offline mode} this year after pandemic
+\item Organizing first ever \textbf{Valorant eSports tournament} of IIT Bombay
+\end{itemize}
+\vspace{-10pt}
+\section*{{\color{myblue}{\LARGE \textbf{Key Projects} }\xfill[0pt]{0.5pt}}}
+\vspace{-8pt}
+\textbf{Intelligent Ground Vehicle Competition '22} | \textit{Oakland University in Michigan, USA} \hfill\textit{Sep '21 - Present}
+\vspace{-8pt}
+    \begin{itemize}[itemsep = -0.6em, leftmargin=9pt]
+    \item \textbf{Member of Controls subsystem} of Team Sedrica which is going to participate in \textbf{IGVC '22}
+    \item Designing code for implementation of \textbf{NMPC time independent algorithm}
+\end{itemize}
+\vspace{-3pt}
+\textbf{Spanning Tree Protocol} | \textit{CS 224 Project, IIT Bombay | Prof. Varsha Apte}
+\hfill\textit{Sep '21 Oct '21}
+\vspace{-8pt}
+    \begin{itemize}[itemsep = -0.6em, leftmargin=9pt]
+    	\item Designed an \textbf{object-oriented C++ simulation} of network of bridges and LANs to establish Spanning Tree
+\item In-taking a topology, the simulation would run the spanning tree algorithm and each bridge would establish the
+status of each of its ports as a designated port, root port or a null port
+        \item Simulated the process of setting up the spanning tree by printing the flow of messages sent and
+received by each bridge at every instant of time till the spanning tree is well-established
+        \end{itemize}
+\vspace{-3pt}
+\textbf{Developing Hybrid ANN-Statistical Model for Robust Stock Market Prediction} | \textit{Summer of Code (SOC), IIT Bombay} \hfill\textit{Mar '21 - Aug '21}
+\vspace{-8pt}
+    \begin{itemize}[itemsep = -0.6em, leftmargin=9pt]
+    \item Designed code for analyzing stock market price trends to predict prices in future using \textbf{SARIMA}, \textbf{Basic GARCH} and \textbf{Hybrid Garch-LSTM} Models
+    \item Implemented the \textbf{Seasonal auto regressive Integrated Moving average model}, after analysing the Partial autocorrelation plots for each of the given datasets
+    \item Models were implemented on Python using the \textbf{Numpy dependency}, followed by a \textbf{Multi-Layer Perceptron Network} and a \textbf{Time Dependent Neural Network}
+    \item Used a\textbf{ Gradient Descent} as an optimizer; with the \textbf{LSE L2-Norm Loss Function} for the Regression Model; and the \textbf{Logistic Loss Function} for the Classifier Model
+    \item Included newer seasonal hyperp.arameters for \textbf{Seasonal AR}, \textbf{Seasonal MA} and \textbf{Seasonal Differencing}
+\end{itemize}
+\textbf{Mobile Calculator Application} | \textit{Learner's Space, WNCC, IIT Bombay}
+\hfill\textit{Jul ’21 - Aug ’21}
+\vspace{-8pt}
+    \begin{itemize}[itemsep = -0.6em, leftmargin=9pt]
+    	\item Successfully created a working \textbf{Calculator app} using \textbf{Dart on Flutter} and \textbf{Android Studio}
+        \item Achieved to implement \textbf{all calculation operations} as performed by a regular calculator
+        \end{itemize}
+\vspace{-3pt}
+\textbf{Quiz Application} | \textit{Learner's Space, WNCC, IIT Bombay}
+\hfill\textit{Jul ’21 - Aug ’21}
+\vspace{-8pt}
+    \begin{itemize}[itemsep = -0.6em, leftmargin=9pt]
+    	\item Successfully created a \textbf{GUI-based Quiz application} which creates basic true/ false based questions
+        \item Created \textbf{database of multiple questions} based on daily activities as well as general knowledge
+        \end{itemize}
+\vspace{-3pt}
+\textbf{TO-DO Application} | \textit{Learner's Space, WNCC, IIT Bombay}
+\hfill\textit{Jul ’21 - Aug ’21}
+\vspace{-8pt}
+    \begin{itemize}[itemsep = -0.6em, leftmargin=9pt]
+    	\item Successfully created a \textbf{TO-DO application} for maintaining daily schedule 
+        \item Integrated \textbf{Google Firebase authentication} to the app for login and security purpose
+        \end{itemize}
+\vspace{-3pt}
+\textbf{Hand of God} | \textit{Institute Technical Summer Project (ITSP), IIT Bombay }
+\hfill\textit{Mar '21 - Aug '21}
+\vspace{-8pt}
+    \begin{itemize}[itemsep = -0.6em, leftmargin=9pt]
+    	\item Created a \textbf{mechatronic glove} which can be used to control various gadgets, including everyday appliances
+        \item Developed an all-new sensor \textbf{String Sensor} based on string length to return voltage values
+        \item Designed the \textbf{ML algorithm} using \textbf{Sklearn Python library} to learn hand gestures in real-time
+        \item Implemented \textbf{Python-Arduino integration} for reading voltage values and predict actions using Python
+        \item Successfully showcased the glove use by \textbf{controlling an Air Mouse} pointer on screen
+        \item Finished among \textbf{Top 6} winning teams out of 80+ teams
+    \end{itemize}
+    \vspace{-3pt}
+    \textbf{CS 101 Lasso Game Project} | \textit{CS 101 course, IIT Bombay | Prof. Bhaskaran Raman}
+\hfill\textit{Jan ’21 - Feb ’21}
+\vspace{-8pt}
+    \begin{itemize}[itemsep = -0.6em, leftmargin=9pt]
+    	\item Successfully enhanced a \textbf{GUI-based Coin Catching Game} written on C++ by adding new modes of playing, different types of coins and many other special objects that act as obstacles.
+        \item Acquired \textbf{AA Grade} in this course due to successful completion and verification of game code
+        \end{itemize}
+\vspace{-10pt}
+
+\section*{{\color{myblue}{\LARGE \textbf{Technical and Extracurricular Activites}}\xfill[0pt]{0.5pt}}}
+\vspace{-8pt}
+\begin{itemize}[itemsep = -0.6em, leftmargin=9pt]
+\item Attempting \textbf{Google Summer Of Code (GSOC) '22 }  and \textbf{active member} of its club \hfill\textit{Jul '21 - Present}
+\item Attended the \textbf{Breast Cancer Awarness session} conducted by \textbf{Techfest} \hfill\textit{Oct '21}
+\item Co-Founder of the startup project \textbf{\textit{Hand of God}} by \textbf{Zextrex Robotics}, which is registered in \textbf{Technovation, IIT-Bombay}, and aims to revolutionize daily lives by commercialising my ITSP Project  \hfill\textit{Sep '21 - Present}
+\item Successfully completed the \textbf{Learners' Space App Development Program} organized by \textbf{Web and Coding Club} for technical skill gain and improvement, and got all projects successfully approved \hfill\textit{Jul '21 - Aug '21}
+\item Finished among the \textbf{Top 6 out of 80+ teams} in \textbf{Institute Technical Summer Project (ITSP) ’2}1 by creating a glove to control technical appliances \hfill\textit{Mar '21 - Aug '21}
+\item Successfully completed the \textbf{Chess course} of \textbf{National Sports Organization (NSO)} under \textbf{International Master Sharad Tilak}, and passed all the tests conducted over a span of just 6 months \hfill\textit{Dec '21 - Jun '21}
+\item Secured \textbf{3rd position} in \textbf{Valorant e-sports tournament} among 9 intra-departmental teams \hfill\textit{Jul '21}
+\item Participated in \textbf{Rubik's Cube Open} conducted by \textbf{Aavhan}\hfill\textit{Mar '21}
+\item Volunteered as \textbf{a Mentor for teaching 3X3 Rubik's cube} for  \textbf{Rubik's Cube Club} \hfill\textit{Mar '21}
+\item Completed the \textbf{Analytics Workshop}
+as a part of \textbf{Alumination 2020} facilitated by Dean ACR Office
+under the \textbf{IIT Bombay Alumnus Virendra Dafane } \hfill\textit{Dec' 20}
+\item Got certified for \textbf{Introduction to Programming using Python} on \textbf{Hackathon} \hfill\textit{Nov '20}
+\item Got certified for \textbf{Problem Solving} on \textbf{Hackathon} \hfill\textit{Apr '20}
+\item Programmed a \textbf{Self-learning AI} using Python in High School \hfill\textit{Oct '19 - Jan '20}
+\item Developed a paper on \textbf{Discrete form of Calculus} in attempt to solve \textbf{Reimann Integral Problem} and was later disclosed as field of complex maths known as finite differences by \textbf{Mike Giles,
+Professor of Scientific Computing
+Head of Department of Mathematical Institute
+University of Oxford} \hfill\textit{Jan '20}
+\item Pursued \textbf{French} language for \textbf{7 years} and attained proficiency in it
+\end{itemize}
+\vspace{-10pt}
+\section*{{\color{myblue}{\LARGE \textbf{Technical Skills}}\xfill[0pt]{0.5pt}}}
+\vspace{-8pt}
+\begin{itemize}[itemsep = -0.5em, leftmargin=9pt]
+	\item  Operating System : Windows, Ubuntu
+	\item  Languages : C++, Python, HTML, Dart, LaTeX, SQL, Django, Octave, Git
+	\item  Software : Abaqus, Ansys, Anaconda, Android Studio, Comsol, VS Code, Github, Spyder, Jupyter Notebook, Arduino IDE, Flutter, ROS, Matlab, MS Office
+	\item  Others : Artificial Intelligence, Machine Learning, Strategic Vision, Problem Solving, Logical Reasoning
+
+\end{itemize}
+ \vspace{-15pt}
+
+
+\end{document}
